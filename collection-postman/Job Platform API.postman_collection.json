@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "487c09a3-aa17-4586-b48f-3d91e15343cd",
+		"name": "Job Platform API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31243542"
+	},
+	"item": [
+		{
+			"name": "Create Meeting",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Project Discussion\",\n  \"description\": \"Initial meeting to discuss project requirements\",\n  \"host_id\": 1,\n  \"participant_id\": 2,\n  \"start_time\": \"2024-01-15 10:00:00\",\n  \"duration\": 30\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/meetings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meetings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Meeting",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Updated Project Discussion\",\n  \"start_time\": \"2024-01-15 11:15:00\",\n  \"duration\": 45,\n  \"status\":\"scheduled\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/meetings/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meetings",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Meeting",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/meetings/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"meetings",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Available Slots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/available-slots?date=2024-01-15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"available-slots"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-01-15"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
